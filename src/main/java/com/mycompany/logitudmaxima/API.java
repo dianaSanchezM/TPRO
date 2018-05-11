@@ -23,7 +23,7 @@ public class API {
     public ResponseEntity<?> manejadorGetOrdersAPI(@PathVariable String numeros) {
         try {
             //obtener datos que se enviarán a través del API
-            return new ResponseEntity<>(HttpServer.getValue(numero), HttpStatus.ACCEPTED);
+            return new ResponseEntity<>(HttpServer.getValue(numeros), HttpStatus.ACCEPTED);
         } catch (Exception ex) {
             //
         }
