@@ -16,14 +16,14 @@ public class HttpServer  {
 
     
 
-    public static String getValue(String valores) {
+    public static int getValue(String valores) {
         valores= valores.split("=")[1];
         String [] lista = valores.split("%2C");
         ArrayList<Integer> arreglo = new ArrayList<>();
         for (int i = 0; i<lista.length; i++){
             arreglo.add(Integer.parseInt(lista[i]));
         }
-        return String.valueOf(aplicacion.getValue(arreglo));
+        return aplicacion.getValue(arreglo);
     }
     
 }
