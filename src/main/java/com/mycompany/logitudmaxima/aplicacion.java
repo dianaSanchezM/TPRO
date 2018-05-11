@@ -20,22 +20,17 @@ public class aplicacion {
         respuestas = new int [lista.size()];
         respuestas[lista.size()-1]=1;
         for (int i=lista.size()-2; i>=0;i-- ){
-            int maximo=mayor(i, n);
-            if (lista.get(maximo)> lista.get(i)){
-                respuestas[i]=1+respuestas[maximo];
-            }else {
-                respuestas[i]=respuestas[maximo];
-            }
-            
+            int maximo=mayor(i);
+            respuestas[i]=1+respuestas[maximo];
         }
         return respuestas[0];
     }
     
-    private static int mayor(int i, int n){
+    private static int mayor(int i){
         int maxim=0;
-        for (int x=i; x<j; x++){
-            if (n!=-1 && respuestas[x]>maxim && respuestas[x]<n){
-                maxim=respuestas[x];
+        for (int x=i; x<lista.size(); x++){
+            if ( respuestas[x]>maxim && lista.get(x)>lista.get(i)){
+                maxim=x;
             }
         }
         return maxim;
