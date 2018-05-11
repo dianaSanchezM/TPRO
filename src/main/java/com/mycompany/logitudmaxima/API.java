@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/")
 public class API {
     @RequestMapping(path = "/response/{numeros}", method = RequestMethod.GET)
-    public ResponseEntity<?> manejadorGetOrdersAPI(@PathVariable String numero) {
+    public ResponseEntity<?> manejadorGetOrdersAPI(@PathVariable String numeros) {
         try {
             //obtener datos que se enviarán a través del API
             return new ResponseEntity<>(HttpServer.getValue(numero), HttpStatus.ACCEPTED);
