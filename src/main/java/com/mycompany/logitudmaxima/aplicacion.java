@@ -15,21 +15,29 @@ public class aplicacion {
     private static ArrayList<Integer> lista;
     private static int[] respuestas;
     public static int getValue(ArrayList<Integer> list){
-        int n=-1;
         lista=list;
         respuestas = new int [lista.size()];
         respuestas[lista.size()-1]=1;
         for (int i=lista.size()-2; i>=0;i-- ){
             int maximo=mayor(i);
-            respuestas[i]=1+respuestas[maximo];
+            System.out.println(i+" "+maximo);
+            if (maximo !=i) {
+                respuestas[i]=1+respuestas[maximo];
+            }else {
+                respuestas[i]=1;
+            }
+        }
+        
+        for (int x=0 ; x<respuestas.length;x++){
+            System.out.println("   "+respuestas[x]);
         }
         return respuestas[0];
     }
     
     private static int mayor(int i){
-        int maxim=0;
-        for (int x=i; x<lista.size(); x++){
-            if ( respuestas[x]>maxim && lista.get(x)>lista.get(i)){
+        int maxim=i;
+        for (int x=i+1; x<lista.size(); x++){
+            if (respuestas[x]>respuestas[maxim] && lista.get(x)>lista.get(i)){
                 maxim=x;
             }
         }
